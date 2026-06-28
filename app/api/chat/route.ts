@@ -102,8 +102,13 @@ export async function POST(req: NextRequest) {
         ? d.whatsapp_redirect_url
         : undefined;
 
+    // Remove o link wa.me do texto quando há handoff — o botão já o representa.
+    const cleanReply = shouldHandoff
+      ? (reply || "").replace(/https?:\/\/wa\.me\/\S*/g, "").replace(/:\s*$/, ".").trim()
+      : reply;
+
     return NextResponse.json({
-      reply: reply || "Desculpe, não consegui entender. Pode reformular?",
+      reply: cleanReply || "Desculpe, não consegui entender. Pode reformular?",
       should_handoff: shouldHandoff,
       whatsapp_redirect_url: whatsappRedirectUrl,
     });
