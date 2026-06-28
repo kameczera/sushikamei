@@ -852,6 +852,23 @@ section { position: relative; padding: clamp(70px, 9vw, 124px) 0; }
 }
 .msg.error { align-self: center; background: rgba(193,64,41,0.12); border:1.5px solid var(--line-red); color: var(--red-deep); font-size: 0.85rem; text-align: center; }
 
+.whatsapp-handoff-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 10px;
+  padding: 8px 14px;
+  background: #25D366;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+.whatsapp-handoff-btn:hover { background: #1ebe5b; }
+
 .chat-typing { align-self: flex-start; display: flex; gap: 5px; padding: 14px 16px; background: var(--panel-solid); border: 1.5px solid var(--ink); border-radius: 12px; border-bottom-left-radius: 4px; }
 .chat-typing span { width: 7px; height: 7px; border-radius: 50%; background: var(--red); animation: blink 1.2s infinite; }
 .chat-typing span:nth-child(2){ animation-delay: 0.2s; }

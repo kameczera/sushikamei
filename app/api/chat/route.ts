@@ -96,8 +96,16 @@ export async function POST(req: NextRequest) {
         : undefined) ??
       (typeof data === "string" ? data : "");
 
+    const shouldHandoff = d?.should_handoff === true;
+    const whatsappRedirectUrl =
+      shouldHandoff && typeof d?.whatsapp_redirect_url === "string"
+        ? d.whatsapp_redirect_url
+        : undefined;
+
     return NextResponse.json({
       reply: reply || "Desculpe, não consegui entender. Pode reformular?",
+      should_handoff: shouldHandoff,
+      whatsapp_redirect_url: whatsappRedirectUrl,
     });
   } catch (err) {
     const aborted = err instanceof Error && err.name === "AbortError";
