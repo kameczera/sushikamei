@@ -45,32 +45,7 @@ export default function Chatbot() {
     if (open) inputRef.current?.focus();
   }, [open]);
 
-  // ajusta o painel quando o teclado virtual aparece no mobile
-  useEffect(() => {
-    if (!open) return;
-    const vv = window.visualViewport;
-    if (!vv) return;
-
-    function adjust() {
-      const panel = panelRef.current;
-      if (!panel || window.innerWidth > 760) return;
-      panel.style.top = vv!.offsetTop + "px";
-      panel.style.height = vv!.height + "px";
-    }
-
-    vv.addEventListener("resize", adjust);
-    vv.addEventListener("scroll", adjust);
-    adjust();
-
-    return () => {
-      vv.removeEventListener("resize", adjust);
-      vv.removeEventListener("scroll", adjust);
-      const panel = panelRef.current;
-      if (panel) { panel.style.top = ""; panel.style.height = ""; }
-    };
-  }, [open]);
-
-  // permite abrir o chat de qualquer botão do site via evento global
+// permite abrir o chat de qualquer botão do site via evento global
   useEffect(() => {
     const openChat = () => setOpen(true);
     window.addEventListener("kamei:open-chat", openChat);
