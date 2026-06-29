@@ -948,6 +948,17 @@ section { position: relative; padding: clamp(70px, 9vw, 124px) 0; }
   .span-wide, .span-half, .span-reg { grid-column: span 2; grid-row: span 1; }
   .hero-stats { gap: 22px; }
   .chat-fab { right: 16px; bottom: 16px; }
+  .chat-panel {
+    inset: 0;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    box-shadow: none;
+  }
 }
 
 @media (max-width: 460px) {

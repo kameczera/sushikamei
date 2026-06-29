@@ -39,7 +39,7 @@ export default function Nav() {
         </span>
       </a>
 
-      <div className="nav-links" style={{ display: menuOpen ? "flex" : undefined }}>
+      <div className="nav-links">
         {LINKS.map((l) => (
           <a key={l.href} href={l.href} onClick={() => setMenuOpen(false)}>
             {l.label}

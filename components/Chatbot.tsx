@@ -31,6 +31,7 @@ export default function Chatbot() {
 
   const bodyRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
 
   // rolar para o final quando há novas mensagens / digitando
   useEffect(() => {
@@ -42,6 +43,31 @@ export default function Chatbot() {
   // foco no input ao abrir
   useEffect(() => {
     if (open) inputRef.current?.focus();
+  }, [open]);
+
+  // ajusta o painel quando o teclado virtual aparece no mobile
+  useEffect(() => {
+    if (!open) return;
+    const vv = window.visualViewport;
+    if (!vv) return;
+
+    function adjust() {
+      const panel = panelRef.current;
+      if (!panel || window.innerWidth > 760) return;
+      panel.style.top = vv!.offsetTop + "px";
+      panel.style.height = vv!.height + "px";
+    }
+
+    vv.addEventListener("resize", adjust);
+    vv.addEventListener("scroll", adjust);
+    adjust();
+
+    return () => {
+      vv.removeEventListener("resize", adjust);
+      vv.removeEventListener("scroll", adjust);
+      const panel = panelRef.current;
+      if (panel) { panel.style.top = ""; panel.style.height = ""; }
+    };
   }, [open]);
 
   // permite abrir o chat de qualquer botão do site via evento global
@@ -125,7 +151,7 @@ export default function Chatbot() {
       )}
 
       {open && (
-        <div className="chat-panel" role="dialog" aria-label="Atendente Sushi Kamei">
+        <div className="chat-panel" ref={panelRef} role="dialog" aria-label="Atendente Sushi Kamei">
           <div className="chat-header">
             <div className="avatar">
               {/* eslint-disable-next-line @next/next/no-img-element */}
