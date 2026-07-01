@@ -16,7 +16,7 @@ export default function Home() {
           <div className="hero-grid">
             <div>
               <span className="hero-tag">
-                <span className="dot" /> Sushi artesanal · Belo Horizonte
+                <span className="dot" /> Alta gastronomia japonesa · Belo Horizonte
               </span>
               <h1>
                 Sushi <span className="glow">Kamei</span>
@@ -24,9 +24,9 @@ export default function Home() {
               <div className="hero-jp kanji">亀井 寿司</div>
               <p className="lead">
                 Barcos de sushi de tamanhos variados, jantares completos e
-                buffet para festas. Peixe fresco, corte artesanal e aquele
-                capricho do sushiman <b style={{ color: "var(--ink)" }}>Hilton</b>{" "}
-                — direto para a sua mesa ou o seu evento em BH.
+                buffet para eventos. Peixe fresco, corte artesanal e o rigor do
+                sushiman <b style={{ color: "var(--ink)" }}>Hilton</b> — servidos
+                à sua mesa ou à sua celebração em BH.
               </p>
               <div className="hero-actions">
                 <OrderButton className="btn btn-primary">
@@ -128,8 +128,8 @@ export default function Home() {
                 <ul>
                   <li>Grande variedade de sushis, niguiris e enrolados</li>
                   <li>Ideal para 8 a 12 pessoas</li>
-                  <li>Apresentação de dar água na boca</li>
-                  <li>O queridinho das comemorações</li>
+                  <li>Apresentação impecável, digna de vitrine</li>
+                  <li>O preferido das grandes celebrações</li>
                 </ul>
                 <OrderButton className="btn btn-primary">Pedir este barco</OrderButton>
               </Reveal>
@@ -441,12 +441,12 @@ export default function Home() {
             <Reveal className="contact-card">
               <div className="kanji-huge kanji">注文</div>
               <h2 className="section-title">
-                Bateu a <span className="accent">vontade</span>?
+                Vamos criar algo <span className="accent">memorável</span>?
               </h2>
               <p>
-                Fale agora com o nosso atendente de IA: ele monta seu barco, tira
-                dúvidas do jantar e ajuda no orçamento da sua festa — rapidinho,
-                a qualquer hora.
+                Fale com o nosso atendente de IA: ele monta o seu barco, esclarece
+                as opções do jantar e prepara o orçamento da sua festa — com toda
+                a atenção, a qualquer hora.
               </p>
               <div className="contact-actions">
                 <OrderButton className="btn btn-primary">

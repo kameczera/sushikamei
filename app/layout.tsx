@@ -1,28 +1,29 @@
 import type { Metadata, Viewport } from "next";
-import { Shippori_Mincho, Yuji_Syuku, Zen_Kaku_Gothic_New } from "next/font/google";
+import { Cormorant_Garamond, Shippori_Mincho, Zen_Kaku_Gothic_New } from "next/font/google";
 import "./globals.css";
 
-// Mincho serif — títulos e corpo (ar tradicional de xilogravura)
+// Serif alta-contraste (couture) — títulos, numerais, ar de alfaiataria
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-cormorant",
+  display: "swap",
+});
+
+// Mincho refinada — kanji, assinaturas e acentos serifados (elegância japonesa)
 const shippori = Shippori_Mincho({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-display",
+  variable: "--font-mincho",
   display: "swap",
 });
 
-// Pincel (fude) — kanji decorativos, selos, brush
-const yuji = Yuji_Syuku({
-  subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-jp-serif",
-  display: "swap",
-});
-
-// Gótica japonesa — rótulos pequenos / UI legível
+// Gótica japonesa — corpo, rótulos e UI (silenciosa e legível)
 const zen = Zen_Kaku_Gothic_New({
   subsets: ["latin"],
-  weight: ["400", "500", "700", "900"],
-  variable: "--font-jp",
+  weight: ["300", "400", "500", "700"],
+  variable: "--font-zen",
   display: "swap",
 });
 
@@ -53,7 +54,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f1e3c6",
+  themeColor: "#f4efe4",
   width: "device-width",
   initialScale: 1,
 };
@@ -63,7 +64,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${shippori.variable} ${yuji.variable} ${zen.variable}`}>
+      <body className={`${cormorant.variable} ${shippori.variable} ${zen.variable}`}>
         {children}
       </body>
     </html>

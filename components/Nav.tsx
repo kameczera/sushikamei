@@ -64,12 +64,12 @@ export default function Nav() {
         <div
           style={{
             position: "fixed",
-            top: 64,
+            top: 68,
             left: 0,
             right: 0,
-            background: "rgba(241,227,198,0.98)",
-            backdropFilter: "blur(8px)",
-            borderBottom: "2px solid var(--ai)",
+            background: "rgba(244,239,228,0.98)",
+            backdropFilter: "blur(10px)",
+            borderBottom: "1px solid var(--gold-line)",
             display: "flex",
             flexDirection: "column",
             padding: "12px",
@@ -82,11 +82,12 @@ export default function Nav() {
               href={l.href}
               onClick={() => setMenuOpen(false)}
               style={{
-                padding: "14px 16px",
-                fontFamily: "var(--font-display)",
-                letterSpacing: "0.14em",
+                padding: "15px 16px",
+                fontFamily: "var(--font-jp)",
+                fontWeight: 500,
+                letterSpacing: "0.2em",
                 textTransform: "uppercase",
-                fontSize: "0.8rem",
+                fontSize: "0.72rem",
                 color: "var(--ink-dim)",
               }}
             >
